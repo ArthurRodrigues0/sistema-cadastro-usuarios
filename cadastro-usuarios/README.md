@@ -35,4 +35,3 @@ Interface simples e funcional para gerenciamento de usuários, com layout centra
 
 ```bash
 git clone https://github.com/SEU-USUARIO/sistema-cadastro-usuarios.git
-``
