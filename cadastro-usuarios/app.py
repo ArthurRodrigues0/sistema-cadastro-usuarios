@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+import os
 import mysql.connector
 
 app = Flask(__name__)
@@ -6,11 +7,11 @@ app = Flask(__name__)
 # conexão com o banco
 def get_db_connection():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="Arthur2309+",
-        database="cadastro_db",
-        port=3307
+        host=os.getenv("DB_HOST", "localhost"),
+        user=os.getenv("DB_USER", "root"),
+        password=os.getenv("DB_PASSWORD", ""),
+        database=os.getenv("DB_NAME", "cadastro_db"),
+        port=int(os.getenv("DB_PORT", "3307"))
     )
 
 @app.route('/')
